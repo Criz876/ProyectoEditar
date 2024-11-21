@@ -30,7 +30,7 @@ public class Sugerencia {
     private String nombreSugerencia;
 
     @ManyToOne
-    @JoinColumn(name = "academico_id", nullable = false)
+    @JoinColumn(name = "academico_id")
     private Academico academico; // Relación con Academico
 
     @Column(name = "fecha_creacionSugerencia")

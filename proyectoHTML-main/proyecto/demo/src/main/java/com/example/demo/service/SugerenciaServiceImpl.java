@@ -13,17 +13,16 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class SugerenciaServiceImpl implements SugerenciaService {
-
     @Autowired
     private SugerenciaRepository sugerenciaRepository;
 
     @Override
-    public List<Sugerencia> buscarTodasLasSugerencias() {
-        return sugerenciaRepository.findAll();
+    public Sugerencia registrarSugerencia(Sugerencia sugerencia) {
+        return sugerenciaRepository.save(sugerencia);
     }
 
     @Override
-    public Sugerencia registrarSugerencia(Sugerencia sugerencia) {
-        return sugerenciaRepository.save(sugerencia);
+    public List<Sugerencia> buscarTodasLasSugerencias() {
+        return sugerenciaRepository.findAll();
     }
 }

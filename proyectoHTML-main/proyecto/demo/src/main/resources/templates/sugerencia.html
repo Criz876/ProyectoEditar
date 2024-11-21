@@ -1,60 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Sugerencia</title>
-    <link rel="stylesheet" href="path/to/your/styles.css"> <!-- Asegúrate de enlazar tu CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Registrar Sugerencia</h1>
-        <form id="sugerenciaForm">
-            <div class="form-group">
-                <label for="nombreSugerencia">Nombre de la Sugerencia:</label>
-                <input type="text" id="nombreSugerencia" name="nombreSugerencia" required>
-            </div>
-            <div class="form-group">
-                <label for="descripcionSugerencia">Descripción:</label>
-                <textarea id="descripcionSugerencia" name="descripcionSugerencia" required></textarea>
-            </div>
-            <button type="submit">Enviar Sugerencia</button>
-        </form>
-    </div>
+    <h2>Registrar Nueva Sugerencia</h2>
+    <form id="formularioSugerencia">
+        <div>
+            <label for="nombreSugerencia">Nombre de la Sugerencia:</label>
+            <input type="text" id="nombreSugerencia" name="nombreSugerencia" required>
+        </div>
+        <div>
+            <label for="descripcionSugerencia">Descripción:</label>
+            <textarea id="descripcionSugerencia" name="descripcionSugerencia" required></textarea>
+        </div>
+        <button type="submit">Enviar Sugerencia</button>
+    </form>
 
     <script>
-        document.getElementById('sugerenciaForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevenir el envío del formulario por defecto
-
-            const nombreSugerencia = document.getElementById('nombreSugerencia').value;
-            const descripcionSugerencia = document.getElementById('descripcionSugerencia').value;
-
-            const sugerencia = {
-                nombreSugerencia: nombreSugerencia,
-                descripcionSugerencia: descripcionSugerencia
+    $(document).ready(function() {
+        $('#formularioSugerencia').on('submit', function(e) {
+            e.preventDefault();
+            
+            var datos = {
+                nombreSugerencia: $('#nombreSugerencia').val(),
+                descripcionSugerencia: $('#descripcionSugerencia').val()
             };
 
-            fetch('/sugerencias/registrar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
+            $.ajax({
+                url: '/sugerencias/registrar',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(datos),
+                success: function(response) {
+                    alert('Sugerencia registrada exitosamente');
+                    // Redirigir o limpiar formulario
+                    window.location.href = '/dashboard-academico';
                 },
-                body: JSON.stringify(sugerencia)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Sugerencia registrada con éxito');
-                    // Aquí puedes redirigir o limpiar el formulario
-                    document.getElementById('sugerenciaForm').reset();
-                } else {
-                    alert('Error al registrar la sugerencia');
+                error: function(xhr) {
+                    alert('Error: ' + xhr.responseText);
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error al registrar la sugerencia');
             });
         });
+    });
     </script>
 </body>
 </html>
