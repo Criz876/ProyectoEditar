@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Sugerencias</title>
+</head>
+<body>
+    <h1>Lista de Sugerencias</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de la Sugerencia</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Fecha de Creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="sugerencia : ${sugerencias}">
+                <tr>
+                    <td th:text="${sugerencia.nombreSugerencia}"></td>
+                    <td th:text="${sugerencia.descripcionSugerencia}"></td>
+                    <td th:text="${sugerencia.estadoSugerencia}"></td>
+                    <td th:text="${sugerencia.fechaCreacionSugerencia}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+    <a href="/sugerencias/nuevo">Registrar Nueva Sugerencia</a>
+</body>
+</html>

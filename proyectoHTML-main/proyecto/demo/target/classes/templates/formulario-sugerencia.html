@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Sugerencia</title>
+</head>
+<body>
+    <h1>Registrar Nueva Sugerencia</h1>
+    <form action="/sugerencias/registrar" method="post">
+        <label for="nombreSugerencia">Nombre de la Sugerencia:</label>
+        <input type="text" id="nombreSugerencia" name="nombreSugerencia" required>
+        
+        <label for="descripcionSugerencia">Descripción:</label>
+        <textarea id="descripcionSugerencia" name="descripcionSugerencia" required></textarea>
+        
+        <button type="submit">Registrar Sugerencia</button>
+    </form>
+    <a href="/sugerencias">Volver a la lista de sugerencias</a>
+</body>
+</html>
