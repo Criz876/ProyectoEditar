@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingresar Sugerencia</title>
+</head>
+<body>
+    <h1>Ingresar Sugerencia</h1>
+    <form action="/sugerencias/registrar" method="post">
+        <label for="nombre_sugerencia">Nombre de la Sugerencia:</label>
+        <input type="text" id="nombre_sugerencia" name="nombreSugerencia" required><br><br>
+        
+        <label for="descripcion_sugerencia">Descripción de la Sugerencia:</label>
+        <textarea id="descripcion_sugerencia" name="descripcionSugerencia" required></textarea><br><br>
+        
+        <input type="submit" value="Ingresar Sugerencia">
+    </form>
+</body>
+</html>
