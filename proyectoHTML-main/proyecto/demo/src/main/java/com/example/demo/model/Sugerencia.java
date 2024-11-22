@@ -33,6 +33,10 @@ public class Sugerencia {
     @JoinColumn(name = "academico_id", nullable= false)
     private Academico academico; // Relación con Academico
 
+    @ManyToOne
+    @JoinColumn(name = "estudiante_id", nullable= false)
+    private Estudiante estudiante; // Relación con Academico
+
     @Column(name = "fecha_creacionSugerencia")
     private LocalDate fechaCreacionSugerencia;
 
@@ -74,6 +78,14 @@ public class Sugerencia {
 
     public void setAcademico(Academico academico) {
         this.academico = academico;
+    }
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     public LocalDate getFechaCreacionSugerencia() {
