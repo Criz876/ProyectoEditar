@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Sugerencia</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Crear Sugerencia</h2>
+        <form id="sugerenciaForm">
+            <div class="form-group">
+                <label for="nombreSugerencia">Nombre de la Sugerencia</label>
+                <input type="text" id="nombreSugerencia" name="nombreSugerencia" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="descripcionSugerencia">Descripción</label>
+                <textarea id="descripcionSugerencia" name="descripcionSugerencia" required></textarea>
+            </div>
+            
+            <button type="submit">Enviar Sugerencia</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('sugerenciaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('/sugerencia/crear', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data);
+                // Redirigir o limpiar el formulario según sea necesario
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
