@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,16 +27,14 @@ public class Sugerencia {
     @Column(name = "nombre_sugerencia")
     private String nombreSugerencia;
 
-    @ManyToOne
-    @JoinColumn(name = "academico_id", nullable= false)
-    private Academico academico; // Relación con Academico
-
-    @ManyToOne
-    @JoinColumn(name = "estudiante_id", nullable= false)
-    private Estudiante estudiante; // Relación con Academico
-
     @Column(name = "fecha_creacionSugerencia")
     private LocalDate fechaCreacionSugerencia;
+
+    @Column(name = "id_academico")
+    private int idAcademicoSug;
+
+    @Column(name = "id_estudiante")
+    private int idEstudianteSug;
 
     public int getIdSugerencia() {
         return idSugerencia;
@@ -72,22 +68,6 @@ public class Sugerencia {
         this.nombreSugerencia = nombreSugerencia;
     }
 
-    public Academico getAcademico() {
-        return academico;
-    }
-
-    public void setAcademico(Academico academico) {
-        this.academico = academico;
-    }
-
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
-
     public LocalDate getFechaCreacionSugerencia() {
         return fechaCreacionSugerencia;
     }
@@ -95,4 +75,22 @@ public class Sugerencia {
     public void setFechaCreacionSugerencia(LocalDate fechaCreacionSugerencia) {
         this.fechaCreacionSugerencia = fechaCreacionSugerencia;
     }
+
+    public int getIdAcademicoSug() {
+        return idAcademicoSug;
+    }
+
+    public void setIdAcademicoSug(int idAcademicoSug) {
+        this.idAcademicoSug = idAcademicoSug;
+    }
+
+    public int getIdEstudianteSug() {
+        return idEstudianteSug;
+    }
+
+    public void setIdEstudianteSug(int idEstudianteSug) {
+        this.idEstudianteSug = idEstudianteSug;
+    }
+
+    
 }
