@@ -10,8 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "sugerencia")
-public class Sugerencia {
+@Table(name= "sugerencia_academico")
+public class SugerenciaAcademico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +32,6 @@ public class Sugerencia {
 
     @Column(name = "id_academico")
     private int idAcademicoSug;
-
-    @Column(name = "id_estudiante")
-    private int idEstudianteSug;
 
     public int getIdSugerencia() {
         return idSugerencia;
@@ -83,14 +80,5 @@ public class Sugerencia {
     public void setIdAcademicoSug(int idAcademicoSug) {
         this.idAcademicoSug = idAcademicoSug;
     }
-
-    public int getIdEstudianteSug() {
-        return idEstudianteSug;
-    }
-
-    public void setIdEstudianteSug(int idEstudianteSug) {
-        this.idEstudianteSug = idEstudianteSug;
-    }
-
     
 }
