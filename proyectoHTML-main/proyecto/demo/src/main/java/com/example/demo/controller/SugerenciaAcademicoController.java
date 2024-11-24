@@ -52,8 +52,8 @@ public class SugerenciaAcademicoController {
         try {
             Academico academico = academicoService.buscarPorCorreo(correoUsuario);
             SugerenciaAcademico sugerencia = new SugerenciaAcademico();
-            sugerencia.setNombreSugerencia(datos.get("nombreSugerencia"));
-            sugerencia.setDescripcionSugerencia(datos.get("descripcionSugerencia"));
+            sugerencia.setNombreSugerenciaAcademico(datos.get("nombreSugerencia"));
+            sugerencia.setDescripcionSugerenciaAcademico(datos.get("descripcionSugerencia"));
 
             sugerenciaService.crearSugerencia(sugerencia, academico);
 

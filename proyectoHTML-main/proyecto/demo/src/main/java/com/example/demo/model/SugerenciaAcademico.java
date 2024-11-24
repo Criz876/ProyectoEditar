@@ -20,68 +20,68 @@ public class SugerenciaAcademico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sugerencia")
-    private int idSugerencia;
+    private int idSugerenciaAcademico;
 
     @Column(name = "estado")
-    private String estadoSugerencia = "Pendiente"; // Estado por defecto
+    private String estadoSugerenciaAcademico = "Pendiente"; // Estado por defecto
 
     @NotBlank(message = "La descripción no puede estar vacía")
     @Size(min = 10, max = 500, message = "La descripción debe tener entre 10 y 500 caracteres")
     @Column(name = "descripcion")
-    private String descripcionSugerencia;
+    private String descripcionSugerenciaAcademico;
 
     @NotBlank(message = "El nombre de la sugerencia no puede estar vacío")
     @Size(min = 5, max = 100, message = "El nombre debe tener entre 5 y 100 caracteres")
     @Column(name = "nombre_sugerencia")
-    private String nombreSugerencia;
+    private String nombreSugerenciaAcademico;
 
     // Cambiar el nombre de la columna para que coincida con la base de datos
     @Column(name = "fecha_creacion")
-    private LocalDateTime fechaCreacionSugerencia = LocalDateTime.now(); // Fecha actual por defecto
+    private LocalDateTime fechaCreacionSugerenciaAcademico = LocalDateTime.now(); // Fecha actual por defecto
 
     @ManyToOne
     @JoinColumn(name = "id_academico")
     private Academico academico;
 
     // Getters y Setters
-    public int getIdSugerencia() {
-        return idSugerencia;
+    public int getIdSugerenciaAcademico() {
+        return idSugerenciaAcademico;
     }
 
-    public void setIdSugerencia(int idSugerencia) {
-        this.idSugerencia = idSugerencia;
+    public void setIdSugerenciaAcademico(int idSugerenciaAcademico) {
+        this.idSugerenciaAcademico = idSugerenciaAcademico;
     }
 
-    public String getEstadoSugerencia() {
-        return estadoSugerencia;
+    public String getEstadoSugerenciaAcademico() {
+        return estadoSugerenciaAcademico;
     }
 
-    public void setEstadoSugerencia(String estadoSugerencia) {
-        this.estadoSugerencia = estadoSugerencia;
+    public void setEstadoSugerenciaAcademico(String estadoSugerenciaAcademico) {
+        this.estadoSugerenciaAcademico = estadoSugerenciaAcademico;
     }
 
-    public String getDescripcionSugerencia() {
-        return descripcionSugerencia;
+    public String getDescripcionSugerenciaAcademico() {
+        return descripcionSugerenciaAcademico;
     }
 
-    public void setDescripcionSugerencia(String descripcionSugerencia) {
-        this.descripcionSugerencia = descripcionSugerencia;
+    public void setDescripcionSugerenciaAcademico(String descripcionSugerenciaAcademico) {
+        this.descripcionSugerenciaAcademico = descripcionSugerenciaAcademico;
     }
 
-    public String getNombreSugerencia() {
-        return nombreSugerencia;
+    public String getNombreSugerenciaAcademico() {
+        return nombreSugerenciaAcademico;
     }
 
-    public void setNombreSugerencia(String nombreSugerencia) {
-        this.nombreSugerencia = nombreSugerencia;
+    public void setNombreSugerenciaAcademico(String nombreSugerenciaAcademico) {
+        this.nombreSugerenciaAcademico = nombreSugerenciaAcademico;
     }
 
-    public LocalDateTime getFechaCreacionSugerencia() {
-        return fechaCreacionSugerencia;
+    public LocalDateTime getFechaCreacionSugerenciaAcademico() {
+        return fechaCreacionSugerenciaAcademico;
     }
 
-    public void setFechaCreacionSugerencia(LocalDateTime fechaCreacionSugerencia) {
-        this.fechaCreacionSugerencia = fechaCreacionSugerencia;
+    public void setFechaCreacionSugerenciaAcademico(LocalDateTime fechaCreacionSugerenciaAcademico) {
+        this.fechaCreacionSugerenciaAcademico = fechaCreacionSugerenciaAcademico;
     }
 
     public Academico getAcademico() {
