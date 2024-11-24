@@ -29,7 +29,14 @@ public class SugerenciaAcademicoController {
     private AcademicoService academicoService;
 
     @GetMapping("/crear")
-    public String mostrarFormularioSugerencia() {
+    public String mostrarFormularioSugerencia(HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+
+        // Verificar si el usuario está logueado y es académico
+        if (tipoUsuario == null || !tipoUsuario.equals("academico")) {
+            return "redirect:/login"; // Redirigir al login si no está logueado o no es académico
+        }
+
         return "sugerencia-academico"; // Vista para crear sugerencia
     }
 
