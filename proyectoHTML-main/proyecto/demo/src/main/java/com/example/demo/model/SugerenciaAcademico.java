@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,7 +28,7 @@ public class SugerenciaAcademico {
     private String nombreSugerencia;
 
     @Column(name = "fecha_creacionSugerencia")
-    private LocalDate fechaCreacionSugerencia;
+    private LocalDateTime fechaCreacionSugerencia;
 
     @Column(name = "id_academico")
     private int idAcademicoSug;
@@ -65,11 +65,11 @@ public class SugerenciaAcademico {
         this.nombreSugerencia = nombreSugerencia;
     }
 
-    public LocalDate getFechaCreacionSugerencia() {
+    public LocalDateTime getFechaCreacionSugerencia() {
         return fechaCreacionSugerencia;
     }
 
-    public void setFechaCreacionSugerencia(LocalDate fechaCreacionSugerencia) {
+    public void setFechaCreacionSugerencia(LocalDateTime fechaCreacionSugerencia) {
         this.fechaCreacionSugerencia = fechaCreacionSugerencia;
     }
 
