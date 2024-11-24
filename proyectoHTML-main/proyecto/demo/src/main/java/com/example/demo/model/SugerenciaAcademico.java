@@ -7,10 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name= "sugerencia_academico")
+@Table(name = "sugerencia_academico")
 public class SugerenciaAcademico {
 
     @Id
@@ -19,20 +23,27 @@ public class SugerenciaAcademico {
     private int idSugerencia;
 
     @Column(name = "estado")
-    private String estadoSugerencia;
+    private String estadoSugerencia = "Pendiente"; // Estado por defecto
 
+    @NotBlank(message = "La descripción no puede estar vacía")
+    @Size(min = 10, max = 500, message = "La descripción debe tener entre 10 y 500 caracteres")
     @Column(name = "descripcion")
     private String descripcionSugerencia;
 
+    @NotBlank(message = "El nombre de la sugerencia no puede estar vacío")
+    @Size(min = 5, max = 100, message = "El nombre debe tener entre 5 y 100 caracteres")
     @Column(name = "nombre_sugerencia")
     private String nombreSugerencia;
 
-    @Column(name = "fecha_creacionSugerencia")
-    private LocalDateTime fechaCreacionSugerencia;
+    // Cambiar el nombre de la columna para que coincida con la base de datos
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fechaCreacionSugerencia = LocalDateTime.now(); // Fecha actual por defecto
 
-    @Column(name = "id_academico")
-    private int idAcademicoSug;
+    @ManyToOne
+    @JoinColumn(name = "id_academico")
+    private Academico academico;
 
+    // Getters y Setters
     public int getIdSugerencia() {
         return idSugerencia;
     }
@@ -73,12 +84,11 @@ public class SugerenciaAcademico {
         this.fechaCreacionSugerencia = fechaCreacionSugerencia;
     }
 
-    public int getIdAcademicoSug() {
-        return idAcademicoSug;
+    public Academico getAcademico() {
+        return academico;
     }
 
-    public void setIdAcademicoSug(int idAcademicoSug) {
-        this.idAcademicoSug = idAcademicoSug;
+    public void setAcademico(Academico academico) {
+        this.academico = academico;
     }
-    
 }
