@@ -69,6 +69,12 @@
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.zerobounce</groupId>
+			<artifactId>zerobounce-java-api-wrapper</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
